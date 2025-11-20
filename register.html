@@ -3,9 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Our Wedding Registry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .couple-names {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .registry-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .registry-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .registry-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .card-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #d4a574;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #c08c5a;
+        }
+
+        .gift-ideas {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+
+        .gift-ideas h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-weight: 300;
+            font-size: 2rem;
+        }
+
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .gift-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f9f7f7;
+            transition: transform 0.3s ease;
+        }
+
+        .gift-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gift-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #d4a574;
+        }
+
+        .gift-item h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .gift-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .faq-section {
+            margin-bottom: 60px;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-weight: 300;
+            font-size: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            color: #666;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .thank-you {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .couple-names {
+                font-size: 1.5rem;
+            }
+            
+            .registry-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    
+    <header>
+        <div class="container">
+            <h1>Our Wedding Registry</h1>
+            <div class="couple-names">Sarah & Michael</div>
+            <p class="subtitle">We're so excited to celebrate our special day with you! Your presence is the greatest gift of all, but if you'd like to contribute to our new life together, we've created this registry with a few ideas.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <p>Thank you for visiting our registry! We feel incredibly blessed to have you in our lives and can't wait to start this new chapter together. Below you'll find links to our registries at various stores as well as some gift ideas that would help us build our home.</p>
+        </section>
+
+        <section class="registry-section">
+            <div class="registry-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1560448204-603b3fc33ddc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="card-content">
+                    <h3>Crate & Barrel</h3>
+                    <p>We've selected some kitchen essentials and home decor items from Crate & Barrel to help us build our home together.</p>
+                    <a href="#" class="btn">Visit Registry</a>
+                </div>
+            </div>
+
+            <div class="registry-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="card-content">
+                    <h3>Amazon</h3>
+                    <p>For your convenience, we've also created an Amazon registry with a variety of items at different price points.</p>
+                    <a href="#" class="btn">Visit Registry</a>
+                </div>
+            </div>
+
+            <div class="registry-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="card-content">
+                    <h3>Honeymoon Fund</h3>
+                    <p>We're saving for our dream honeymoon to Italy! Contributions towards our travel fund would be greatly appreciated.</p>
+                    <a href="#" class="btn">Contribute</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="gift-ideas">
+            <h2>Gift Ideas</h2>
+            <div class="gift-grid">
+                <div class="gift-item">
+                    <div class="gift-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Kitchen Essentials</h3>
+                    <p>Cookware, bakeware, and kitchen tools to help us create delicious meals together.</p>
+                </div>
+
+                <div class="gift-item">
+                    <div class="gift-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3>Bed & Bath</h3>
+                    <p>Linens, towels, and bedroom accessories to make our home cozy and comfortable.</p>
+                </div>
+
+                <div class="gift-item">
+                    <div class="gift-icon">
+                        <i class="fas fa-wine-glass-alt"></i>
+                    </div>
+                    <h3>Entertaining</h3>
+                    <p>Barware, serving pieces, and dinnerware for hosting friends and family.</p>
+                </div>
+
+                <div class="gift-item">
+                    <div class="gift-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Honeymoon</h3>
+                    <p>Contributions towards flights, accommodations, or experiences on our honeymoon.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Where are you registered?</div>
+                <div class="faq-answer">We're registered at Crate & Barrel and Amazon. You can find links to both registries above.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if I prefer to give cash?</div>
+                <div class="faq-answer">We completely understand! We've set up a honeymoon fund that you can contribute to if you prefer.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">When should I send the gift?</div>
+                <div class="faq-answer">You can send gifts to our address anytime before or after the wedding. We'll have a gift table at the reception as well.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What's your address for shipping gifts?</div>
+                <div class="faq-answer">Please contact Sarah or Michael directly for our shipping address. We appreciate your generosity!</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="thank-you">Thank you for your love and support!</p>
+            <p>With all our love, Sarah & Michael</p>
+        </div>
+    </footer>
 </body>
 </html>
