@@ -3,14 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate</title>
+    <title>Certificate of Completion</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .certificate-container {
+            background: white;
+            border: 20px solid #f4d03f;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certificate-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 5px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            z-index: -1;
+        }
+        
+        .certificate-header {
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .certificate-body {
+            padding: 40px;
+        }
+        
+        .certificate-title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .student-name {
+            font-size: 2.5rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 30px 0;
+            padding: 15px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .course-name {
+            font-size: 1.8rem;
+            color: #2980b9;
+            font-weight: bold;
+            margin: 25px 0;
+            padding: 15px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            border-left: 5px solid #2980b9;
+        }
+        
+        .certificate-date {
+            font-size: 1.3rem;
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 30px;
+            padding: 10px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .decoration {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 8rem;
+            color: #34495e;
+            z-index: 0;
+        }
+        
+        .decoration-1 {
+            top: 50px;
+            left: 50px;
+        }
+        
+        .decoration-2 {
+            bottom: 50px;
+            right: 50px;
+        }
+        
+        .signature-section {
+            margin-top: 50px;
+            border-top: 2px solid #bdc3c7;
+            padding-top: 20px;
+        }
+        
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        @media (max-width: 768px) {
+            .certificate-title {
+                font-size: 2rem;
+            }
+            
+            .student-name {
+                font-size: 1.8rem;
+            }
+            
+            .course-name {
+                font-size: 1.4rem;
+            }
+            
+            .certificate-body {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Certificate of Completion</h1>
-    <p>This certifies that</p>
-    <h2>{{ Micaiah wanyama }}</h2>
-    <p>has successfully completed the course</p>
-    <h3>{{ Diploma in software engineering }}</h3>
-    <p>Date: {{ 2026 May 20 }}</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8">
+                <div class="certificate-container">
+                    <!-- Decorative Elements -->
+                    <div class="decoration decoration-1">⚡</div>
+                    <div class="decoration decoration-2">🏆</div>
+                    
+                    <!-- Header -->
+                    <div class="certificate-header">
+                        <div class="container">
+                            <h1 class="display-4 fw-bold mb-0">CERTIFICATE</h1>
+                            <p class="lead mb-0">OF ACHIEVEMENT</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Body -->
+                    <div class="certificate-body text-center position-relative">
+                        <p class="fs-5 text-muted mb-4">This certifies that</p>
+                        
+                        <div class="student-name">
+                            Micaiah Wanyama
+                        </div>
+                        
+                        <p class="fs-5 text-muted mb-4">has successfully completed the course</p>
+                        
+                        <div class="course-name">
+                            Diploma in Software Engineering
+                        </div>
+                        
+                        <p class="fs-5 text-muted mt-5">with distinction and outstanding performance</p>
+                        
+                        <div class="certificate-date">
+                            Awarded on: May 20, 2026
+                        </div>
+                        
+                        <!-- Signature Section -->
+                        <div class="row signature-section">
+                            <div class="col-md-6 text-start">
+                                <div class="signature">_________________________</div>
+                                <p class="text-muted mb-0">Director of Education</p>
+                                <p class="text-muted">Tech Academy</p>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <div class="signature">_________________________</div>
+                                <p class="text-muted mb-0">Head of Department</p>
+                                <p class="text-muted">Software Engineering</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Certificate ID -->
+                        <div class="mt-4">
+                            <small class="text-muted">Certificate ID: SE-2026-MW-0420</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Optional: Add some interactive effects -->
+    <script>
+        // Add a simple animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const certificate = document.querySelector('.certificate-container');
+            certificate.style.transform = 'scale(0.9)';
+            certificate.style.opacity = '0';
+            
+            setTimeout(() => {
+                certificate.style.transition = 'all 0.5s ease';
+                certificate.style.transform = 'scale(1)';
+                certificate.style.opacity = '1';
+            }, 100);
+        });
+    </script>
 </body>
 </html>
