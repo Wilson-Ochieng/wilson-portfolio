@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELLO</title>
+</head>
+<body>
+    <main class="register-container" aria-labelledby="registerHeading"></main>
+        <h1 id="registerHeading">Create an account</h1>
+
+        <form id="registerForm" action="#" method="post" novalidate>
+            <div class="field">
+                <label for="fullname">Full name</label>
+                <input id="fullname" name="fullname" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" pattern="^[a-zA-Z0-9._-]{3,20}$" title="3–20 characters: letters, numbers, . _ -" required />
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" minlength="8" autocomplete="new-password" required />
+                <small>At least 8 characters.</small>
+            </div>
+
+            <div class="field">
+                <label for="confirm">Confirm password</label>
+                <input id="confirm" name="confirm" type="password" autocomplete="new-password" required />
+                <div id="pwFeedback" aria-live="polite" class="feedback"></div>
+            </div>
+
+            <div class="field checkbox">
+                <input id="terms" name="terms" type="checkbox" required />
+                <label for="terms">I agree to the <a href="#" tabindex="0">terms</a></label>
+            </div>
+
+            <div class="actions">
+                <button id="submitBtn" type="submit" disabled>Create account</button>
+            </div>
+        </form>
+
+        <style>
+            .register-container { max-width:420px; margin:32px auto; font-family:system-ui,Segoe UI,Roboto,Arial; padding:16px; }
+            form { display:flex; flex-direction:column; gap:12px; }
+            .field { display:flex; flex-direction:column; gap:6px; }
+            label { font-weight:600; font-size:0.95rem; }
+            input[type="text"], input[type="email"], input[type="password"] { padding:8px 10px; border:1px solid #ccc; border-radius:6px; font-size:1rem; }
+            .checkbox { flex-direction:row; align-items:center; gap:8px; }
+            .actions { margin-top:8px; }
+            button { background:#0366d6; color:#fff; border:none; padding:10px 14px; border-radius:6px; cursor:pointer; }
+            button:disabled { opacity:0.6; cursor:not-allowed; }
+            .feedback { color:#c00; font-size:0.9rem; min-height:1.2em; }
+            small { color:#666; }
+        </style>
+
+        <script>
+            (function () {
+                const form = document.getElementById('registerForm');
+                const pw = document.getElementById('password');
+                const confirm = document.getElementById('confirm');
+                const submitBtn = document.getElementById('submitBtn');
+                const feedback = document.getElementById('pwFeedback');
+
+                function validatePasswords() {
+                    if (!pw.value || !confirm.value) {
+                        feedback.textContent = '';
+                        return false;
+                    }
+                    if (pw.value !== confirm.value) {
+                        feedback.textContent = 'Passwords do not match.';
+                        return false;
+                    }
+                    if (pw.value.length < 8) {
+                        feedback.textContent = 'Password must be at least 8 characters.';
+                        return false;
+                    }
+                    feedback.textContent = '';
+                    return true;
+                }
+
+                function updateSubmitState() {
+                    const formValid = form.checkValidity();
+                    submitBtn.disabled = !(formValid && validatePasswords());
+                }
+
+                pw.addEventListener('input', () => { validatePasswords(); updateSubmitState(); });
+                confirm.addEventListener('input', () => { validatePasswords(); updateSubmitState(); });
+                form.addEventListener('input', updateSubmitState);
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (!validatePasswords() || !form.checkValidity()) {
+                        updateSubmitState();
+                        return;
+                    }
+                    // Replace with real submit logic (AJAX/fetch or form.submit())
+                    submitBtn.textContent = 'Submitting...';
+                    submitBtn.disabled = true;
+                    setTimeout(() => {
+                        alert('Registration simulated. Implement server-side handling.');
+                        submitBtn.textContent = 'Create account';
+                        submitBtn.disabled = false;
+                        form.reset();
+                    }, 800);
+                });
+
+                // initial state
+                updateSubmitState();
+            })();
+        </script>
+    </main>
+</body>
+</html>
